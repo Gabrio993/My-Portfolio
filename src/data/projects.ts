@@ -36,6 +36,13 @@ const projects: Project[] = [
     githubUrl: "https://github.com/Gabrio993/My-Portfolio",
     technologies: ["React.js", "Typescript", "Tailwind CSS"],
   },
+  {
+    id: 6,
+    title: "Work-Hours-Tracker",
+    description: "A simple Python script with a graphical interface (GUI) made with `tkinter` to help you track your work hours for each month.",
+    githubUrl: "https://github.com/Gabrio993/Work-Hours-Tracker",
+    technologies: ["Python"],
+  },
 ];
 
 export default projects;
