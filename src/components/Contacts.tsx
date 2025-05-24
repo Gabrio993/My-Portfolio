@@ -28,7 +28,7 @@ const Contact = () => {
 
           <div className="flex gap-4 mt-8">
             <a
-              href="https://github.com/username"
+              href="https://github.com/Gabrio993"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors"
@@ -38,7 +38,7 @@ const Contact = () => {
             </a>
 
             <a
-              href="https://linkedin.com/in/username"
+              href="https://linkedin.com/in/fuscogabriele"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors"
