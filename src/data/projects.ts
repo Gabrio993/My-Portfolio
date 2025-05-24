@@ -10,7 +10,7 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Angular Fitness",
+    title: "Angular-Fitness",
     description: "This project lets logged-in users view gym classes and book them until spots run out.",
     githubUrl: "https://github.com/Gabrio993/Angular-Project",
     technologies: ["Angular.js", "Typescript", "Bootstrap"],
