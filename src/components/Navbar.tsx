@@ -48,23 +48,24 @@ const Navbar = () => {
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
       {/* Mobile Navigation Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md py-4">
-          <div className="flex flex-col space-y-4 px-4">
-            <button onClick={() => scrollToSection("home")} className="nav-link text-left w-fit">
-              Home
-            </button>
-            <button onClick={() => scrollToSection("projects")} className="nav-link text-left w-fit ">
-              Projects
-            </button>
-            <button onClick={() => scrollToSection("contact")} className="nav-link text-left w-fit  ">
-              Contact
-            </button>
-          </div>
+      <div
+        className={`md:hidden absolute top-full left-0 right-0 bg-white shadow-md py-4 transition-all duration-500 ease-in-out ${
+          isMenuOpen ? "opacity-100 " : "opacity-0  scale-75  "
+        }`}
+      >
+        <div className="flex flex-col space-y-4 px-4">
+          <button onClick={() => scrollToSection("home")} className="nav-link text-left w-fit">
+            Home
+          </button>
+          <button onClick={() => scrollToSection("projects")} className="nav-link text-left w-fit">
+            Projects
+          </button>
+          <button onClick={() => scrollToSection("contact")} className="nav-link text-left w-fit">
+            Contact
+          </button>
         </div>
-      )}
+      </div>
     </header>
   );
 };
