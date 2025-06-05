@@ -1,6 +1,56 @@
 import { Mail, Github, Linkedin, Phone, MapPin } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState<"sending" | "success" | "error" | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setStatus("sending");
+
+    try {
+      const response = await fetch("/.netlify/functions/contacts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      console.log(result);
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+  useEffect(() => {
+    if (status === "success" || status === "error") {
+      const timer = setTimeout(() => {
+        setStatus(null); // Resetta lo stato per nascondere il messaggio
+      }, 3000);
+
+      return () => clearTimeout(timer); // Pulizia se il componente si smonta o status cambia prima
+    }
+  }, [status]);
+
   return (
     <div>
       <h2 className="section-title">Contact</h2>
@@ -50,7 +100,7 @@ const Contact = () => {
         </div>
 
         <div>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block mb-1 text-sm">
                 Name
@@ -58,7 +108,10 @@ const Contact = () => {
               <input
                 type="text"
                 id="name"
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-black"
+                required
               />
             </div>
 
@@ -69,7 +122,10 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-black"
+                required
               />
             </div>
 
@@ -80,13 +136,20 @@ const Contact = () => {
               <textarea
                 id="message"
                 rows={5}
+                value={formData.message}
+                onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-black"
+                required
               ></textarea>
             </div>
 
-            <button type="submit" className="btn btn-dark">
-              Send Message
+            <button type="submit" className="btn btn-dark" disabled={status === "sending"}>
+              {status === "sending" ? "Sending..." : "Send Message"}
             </button>
+
+            {/* Messaggi di stato */}
+            {status === "success" && <p className="text-green-600">Messaggio inviato con successo!</p>}
+            {status === "error" && <p className="text-red-600">Errore durante l'invio. Riprova più tardi.</p>}
           </form>
         </div>
       </div>
