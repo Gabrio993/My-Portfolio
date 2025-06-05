@@ -67,7 +67,8 @@ export const handler: Handler = async (event: HandlerEvent, _context: HandlerCon
   const mailOptions = {
     from: `"${name}" <${email}>`, // mittente con nome ed email dell'utente
     to: process.env.MY_EMAIL_RECEIVER, // tua email dove vuoi ricevere i messaggi
-    subject: `Nuovo messaggio dal sito da ${name}`,
+    replyTo: `${email}`,
+    subject: `Nuovo messaggio dal sito da ${email}`,
     text: message,
   };
 
