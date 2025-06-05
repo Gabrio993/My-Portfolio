@@ -60,9 +60,9 @@ const Contact = () => {
           <p className="text-lg mb-6">I'm always open to new opportunities and collaborations. Feel free to reach out if you'd like to connect!</p>
 
           <div className="space-y-4">
-            <a href="mailto:gabriele93.fusco@gmail.com" className="flex items-center gap-3 hover:text-gray-700 transition-colors">
+            <a href="mailto:gabrio8393@gmail.com" className="flex items-center gap-3 hover:text-gray-700 transition-colors">
               <Mail size={20} />
-              <span>gabriele93.fusco@gmail.com</span>
+              <span>gabrio8393@gmail.com</span>
             </a>
 
             <a href="tel:+393208242781" className="flex items-center gap-3 hover:text-gray-700 transition-colors">
