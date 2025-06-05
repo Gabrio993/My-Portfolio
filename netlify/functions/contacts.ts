@@ -52,8 +52,6 @@ export const handler: Handler = async (event: HandlerEvent, _context: HandlerCon
     };
   }
 
-  // CREA TRASPORTER nodemailer (esempio con SMTP Gmail)
-  // Sostituisci USER e PASS con variabili ambiente!
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -73,7 +71,7 @@ export const handler: Handler = async (event: HandlerEvent, _context: HandlerCon
   
   Nome: ${name}
   Email: ${email}
-  
+
   Messaggio:
   ${message}`,
   };

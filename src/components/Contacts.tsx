@@ -1,5 +1,6 @@
 import { Mail, Github, Linkedin, Phone, MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
+import { PUBLIC_CONTACT_EMAIL } from "../config";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -60,9 +61,9 @@ const Contact = () => {
           <p className="text-lg mb-6">I'm always open to new opportunities and collaborations. Feel free to reach out if you'd like to connect!</p>
 
           <div className="space-y-4">
-            <a href={process.env.SMTP_USER} className="flex items-center gap-3 hover:text-gray-700 transition-colors">
+            <a href={`mailto:${PUBLIC_CONTACT_EMAIL}`} className="flex items-center gap-3 hover:text-gray-700 transition-colors">
               <Mail size={20} />
-              <span>{process.env.SMTP_USER}</span>
+              <span>{PUBLIC_CONTACT_EMAIL}</span>
             </a>
 
             <a href="tel:+393208242781" className="flex items-center gap-3 hover:text-gray-700 transition-colors">
