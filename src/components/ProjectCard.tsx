@@ -34,6 +34,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </a>
 
         {project.title === "L-N-D-S" && <span className="p-1 bg-red-500 text-white text-xs rounded">Private</span>}
+        {project.title.includes("Documentation") && <span className="p-1 bg-green-500 text-white text-xs rounded">Documentation</span>}
       </div>
     </div>
   );

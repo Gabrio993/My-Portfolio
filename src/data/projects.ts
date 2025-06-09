@@ -43,6 +43,21 @@ const projects: Project[] = [
     githubUrl: "https://github.com/Gabrio993/Work-Hours-Tracker",
     technologies: ["Python"],
   },
+  {
+    id: 7,
+    title: "Vue-Documentation",
+    description: "Comprehensive introduction to Vue.js, the versatile framework for creating reactive and component-driven web interfaces",
+    githubUrl: "https://github.com/Gabrio993/Documentazione-Vue",
+    technologies: ["Vue.js"],
+  },
+  {
+    id: 8,
+    title: "Nuxt-Documentation",
+    description:
+      "An introductory guide to Nuxt.js — the powerful Vue.js framework for building performant, server-side rendered, and statically generated applications.",
+    githubUrl: "https://github.com/Gabrio993/Documentazione-Nuxt",
+    technologies: ["Nuxt.js"],
+  },
 ];
 
 export default projects;
