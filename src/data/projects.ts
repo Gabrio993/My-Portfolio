@@ -64,7 +64,7 @@ const projects: Project[] = [
     description:
       "Project management web application built with PHP and CodeIgniter. It allows creating and managing clients, projects, and users with authentication, assigning projects to users, and tracking hours worked on each project. The system also includes reporting features and Excel export for data analysis.",
     githubUrl: "https://github.com/Gabrio993/Documentazione-Nuxt",
-    technologies: ["Php, CodeIgniter, Javascript"],
+    technologies: ["Php", "CodeIgniter", "Javascript"],
   },
 ];
 
